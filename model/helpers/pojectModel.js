@@ -23,8 +23,13 @@ async function addProject(project) {
     .then(([id]) => this.getProjectById(id));
 }
 
+async function allProjects() {
+  return db('projects').select();
+}
+
 
 module.exports = {
   getProjectById,
   addProject,
+  allProjects,
 };

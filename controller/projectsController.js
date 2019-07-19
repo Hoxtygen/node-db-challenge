@@ -34,16 +34,10 @@ class Projects {
   }
 
   static async getAllProjects(req, res) {
-    try {
-      const AllProjects = await projectModel.select();
-      return res.json(200).json({
-        AllProjects,
-      });
-    } catch (error) {
-      return res.status(500).json({
-        errorMessage: error,
-      });
-    }
+    const projects = await projectModel.allProjects();
+    return res.status(200).json({
+      projects,
+    });
   }
 }
 module.exports = Projects;
