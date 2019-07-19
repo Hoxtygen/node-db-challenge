@@ -5,7 +5,7 @@ const projects = require('../helpers/pojectModel.js');
 
 router.get('/', async (req, res) => {
   try {
-    const [projectsData] = await projects.get();
+    const projectsData = await projects.get();
     res.status(200).json(projectsData);
   } catch (error) {
     res.status(500).json({
@@ -30,4 +30,14 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  const projectData = req.body;
+  try {
+    const newProject = await projects.add(projectData);
+    console.log(newProject);
+    res.status(201).json(newProject);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to create new project' });
+  }
+});
 module.exports = router;

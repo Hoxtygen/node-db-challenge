@@ -11,7 +11,7 @@ function getById(id) {
 }
 
 async function add(projectData) {
-  const id = await db('schemes')
+  const id = await db('projects')
     .insert(projectData);
   return getById(id);
 }
