@@ -39,5 +39,17 @@ class Projects {
       projects,
     });
   }
+
+  static async removeProject(req, res) {
+    const project = await projectModel.removeProject(req.project.id);
+    if (project) {
+      return res.status(200).json({
+        message: 'project successfully deleted',
+      });
+    }
+    return res.status(500).json({
+      error: 'The project could not be removed',
+    });
+  }
 }
 module.exports = Projects;

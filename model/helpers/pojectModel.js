@@ -27,9 +27,16 @@ async function allProjects() {
   return db('projects').select();
 }
 
+function removeProject(id) {
+  return db('projects')
+    .where('id', id)
+    .del();
+}
+
 
 module.exports = {
   getProjectById,
   addProject,
   allProjects,
+  removeProject,
 };
