@@ -33,9 +33,26 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `Relational Databases` and `SQL`.
+
+A relational database is a set of formally described tables from which data can be accessed or reassembled in many different ways without having to reorganize the database tables while  Structured Query Language (SQL) is the  standard user and application programming interface (API) of a relational database . SQL statements are used both for interactive queries for information from a relational database and for gathering data for reports.
+
+
 1. Why do tables need a `primary key`?
+
+A primary key is what identifies an individual piece of data from all the other data in a collection.
+
+In a relational database, you would use a primary key to uniquely identify a row in a table. In document stores, it would be a specific document in a collection. In a key-value store, the primary key would get the value for that specific object from the keyspace.
+
+
 1. What is the name given to a table column that references the primary key on another table.
+
+Foreign key
+
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+
+Join table
+
 
 ## Project Set Up
 

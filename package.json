@@ -1,0 +1,31 @@
+{
+  "name": "db-challenge",
+  "version": "1.0.0",
+  "description": "This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hoxtygen/node-db-challenge.git"
+  },
+  "author": "Wasiu Idowu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hoxtygen/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/Hoxtygen/node-db-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.0",
+    "knex-cleaner": "^1.2.1",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.1",
+    "nodemon": "^1.19.1"
+  }
+}
