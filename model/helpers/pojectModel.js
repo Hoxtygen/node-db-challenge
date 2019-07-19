@@ -1,34 +1,30 @@
-const knex = require('knex');
-const config = require('../../knexfile.js');
 const db = require('../dbConfig.js');
 
-function get() {
-  return db('projects');
+async function getProjectById(id) {
+  const project = await db('projects')
+    .where('id', id)
+    .first();
+  if (project) {
+    project.completed = !!project.completed;
+    if (project) project.actions = await db('actions').where('project_id', id);
+    if (project.actions) {
+      project.actions.forEach((action) => {
+        // eslint-disable-next-line no-param-reassign
+        action.completed = !!action.completed;
+      });
+    }
+  }
+  return project;
 }
 
-function getById(id) {
-  return db('projects').where({ id });
-}
-
-async function add(projectData) {
-  const id = await db('projects')
-    .insert(projectData);
-  return getById(id);
+async function addProject(project) {
+  return db('projects')
+    .insert(project)
+    .then(([id]) => this.getProjectById(id));
 }
 
 
 module.exports = {
-  get,
-  getById,
-  add,
+  getProjectById,
+  addProject,
 };
-
-
-/*
-
-
-function insert(project) {
-  return db('projects')
-    .insert(project)
-    .then(([id]) => this.get(id));
-} */

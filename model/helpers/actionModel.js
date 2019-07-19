@@ -4,19 +4,24 @@ function get() {
   return db('actions');
 }
 
-function getById(id) {
-  return db('actions').where({ id });
+async function getActionById(id) {
+  const action = await db('actions')
+    .where('id', id)
+    .first();
+  action.completed = !!action.completed;
+  return action;
 }
 
-function add(action) {
+async function addAction(action) {
   return db('actions')
     .insert(action)
-    .then(([id]) => this.get(id));
+    .then(([id]) => this.getActionById(id));
 }
 
 module.exports = {
   get,
-  getById,
-  add,
+  addAction,
+  getActionById,
 };
+
 
